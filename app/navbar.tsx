@@ -41,7 +41,7 @@ export default function HomeNavBar(): JSX.Element {
   
       <NavbarContent as="div" justify="end">
         <NavbarItem>
-            <Button as={Link} color="secondary" href="#" variant="flat">
+            <Button as={Link} color="secondary" href="/api/auth/login" variant="flat">
               Sign In/Create Account
             </Button>
           </NavbarItem>
