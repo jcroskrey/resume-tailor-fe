@@ -1,10 +1,14 @@
 'use client';
 import React from "react";
 import { usePathname } from 'next/navigation';
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link} from "@nextui-org/react";
+import { UserProfileButton } from './profile_button';
+
 
 export default function HomeNavBar(): JSX.Element {
   const currentRoute = usePathname();
+
+
 
   // Highlight the active link in the Navbar
   type aboutHighlightedType = 'foreground' | 'secondary';
@@ -20,32 +24,30 @@ export default function HomeNavBar(): JSX.Element {
     createHighlighted = 'secondary';
   }
 
-    return (
-      <Navbar>
-      <NavbarBrand>
-        <p className="font-bold text-inherit">Resume Tailor</p>
-      </NavbarBrand>
-  
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color={aboutHighlighted} href="/about">
-            About
-          </Link>
-        </NavbarItem>
-        <NavbarItem  >
-          <Link color={createHighlighted} href="/create">
-            Create Resume
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-  
-      <NavbarContent as="div" justify="end">
-        <NavbarItem>
-            <Button as={Link} color="secondary" href="/api/auth/login" variant="flat">
-              Sign In/Create Account
-            </Button>
-          </NavbarItem>
-      </NavbarContent>
-    </Navbar>
-    );
+  return (
+    <Navbar>
+    <NavbarBrand>
+      <p className="font-bold text-inherit text-blue-400">Resume Tailor</p>
+    </NavbarBrand>
+
+    <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarItem>
+        <Link color={aboutHighlighted} href="/about">
+          About
+        </Link>
+      </NavbarItem>
+      <NavbarItem  >
+        <Link color={createHighlighted} href="/create">
+          Create Resume
+        </Link>
+      </NavbarItem>
+    </NavbarContent>
+
+    <NavbarContent as="div" justify="end">
+      <NavbarItem>
+        <UserProfileButton />
+      </NavbarItem>
+    </NavbarContent>
+  </Navbar>
+  );
   }
