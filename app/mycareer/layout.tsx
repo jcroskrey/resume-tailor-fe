@@ -1,6 +1,6 @@
 import HomeNavBar from "../navbar"
 
-export default function CreatePageLayout({
+export default function MyResumeLayout({
     children, // will be a page or nested layout
   }: {
     children: React.ReactNode

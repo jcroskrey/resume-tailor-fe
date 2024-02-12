@@ -8,26 +8,24 @@ import { UserProfileButton } from './profile_button';
 export default function HomeNavBar(): JSX.Element {
   const currentRoute = usePathname();
 
-
-
   // Highlight the active link in the Navbar
   type aboutHighlightedType = 'foreground' | 'secondary';
-  type createHighlightedType = 'foreground' | 'secondary';
+  type careerHighlightedType = 'foreground' | 'secondary';
   let aboutHighlighted = 'foreground' as aboutHighlightedType;
-  let createHighlighted = 'foreground' as createHighlightedType;
+  let careerHighlighted = 'foreground' as careerHighlightedType;
   if (currentRoute === "/about") {
     aboutHighlighted = 'secondary';
-    createHighlighted = 'foreground';
+    careerHighlighted = 'foreground';
   }
-  else if (currentRoute === "/create") {
+  else if (currentRoute === "/mycareer") {
     aboutHighlighted = 'foreground';
-    createHighlighted = 'secondary';
+    careerHighlighted = 'secondary';
   }
 
   return (
-    <Navbar>
+    <Navbar maxWidth="full">
     <NavbarBrand>
-      <p className="font-bold text-inherit text-blue-400">Resume Tailor</p>
+      <p className="font-bold">Resume Tailor</p>
     </NavbarBrand>
 
     <NavbarContent className="hidden sm:flex gap-4" justify="center">
@@ -37,8 +35,8 @@ export default function HomeNavBar(): JSX.Element {
         </Link>
       </NavbarItem>
       <NavbarItem  >
-        <Link color={createHighlighted} href="/create">
-          Create Resume
+        <Link color={careerHighlighted} href="/mycareer">
+          My Career
         </Link>
       </NavbarItem>
     </NavbarContent>
